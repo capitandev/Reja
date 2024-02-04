@@ -32,7 +32,7 @@ app.get("/", function(req, res) {
 //     res.end("<h1>salom b alex</h1>");
 // })
 // app.get("/gift", function(req, res){
-//     res.end("<h1>salom bu gift </h1>");
+//     res.end("<h1>salom bu gift </h1>" );
 // })
 
 const server = http.createServer(app); 
