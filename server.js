@@ -15,15 +15,28 @@ app.set("views","views");
 app.set("view engine","ejs");
 
 //4 Rounting code
-app.get("/", function(req, res){
-    res.end("<h1>salom  alex</h1>");
-})
-app.get("/gift", function(req, res){
-    res.end("<h1>salom bu gift page</h1>");
-})
+app.post("/create-item", (req, res) =>{
+    console.log(req.body); // req ni faqta budy qismi uchun 
+    //console.log(req.); // reqesni malumtolarini hammsini ko'rish uchun 
+    res.json({test: "success"});
+
+});
+
+
+app.get("/", function(req, res) {
+    res.render("harid");
+});
+
+
+// app.get("/", function(req, res){
+//     res.end("<h1>salom b alex</h1>");
+// })
+// app.get("/gift", function(req, res){
+//     res.end("<h1>salom bu gift </h1>");
+// })
 
 const server = http.createServer(app); 
 let Port = 3000;
 server.listen(Port, function() {
-    console.log(`The server runing successfully on port : ${Port}`);
+    console.log(`The server is running successfully on port: ${Port}`);
 });
