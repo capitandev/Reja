@@ -15,9 +15,10 @@ app.set("views", "views");
 app.set("view engine", "ejs"); 
 
 //4 Rounting code
-app.get("/", function(req, res){
-    res.end("<h1>salom  alex</h1>");
-})
+app.post("/create-item", (req, res) => {
+  console.log(req);
+  res.json({ test: "success" });
+});
 app.get("/gift", function(req, res){
     res.end("<h1>salom bu gift page</h1>");
 })
