@@ -28,8 +28,8 @@ app.set("view engine", "ejs"); // view engine ejs ekanligini korsatyapmiz.
 app.post("/create-item", (req, res) => {
   res.json({ test: "success" });
 });
-app.get("/author", function (req, res) {
-  res.render("author", { user: user });
+app.get("/", function (req, res) {
+  res.render("harid", { user: user });
 });
 app.get("/author", function (req, res) {
     res.render("author", { user: user });
