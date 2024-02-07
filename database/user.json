@@ -1,0 +1,20 @@
+{
+  "name": "Alex",
+  "profession": "Front-End Developer",
+  "age": "25",
+  "residence": "S.Korea",
+  "address": "S.Korea, Seoul",
+  "languages": ["Uzbek", "Korean", "English"],
+  "skills": ["Html", "Css", "Js", "NodeJS", "C++"],
+  "extra_skills": ["Bootstrap, Materialize", "Styling, Sass", "Django, Flask", "GIT Knowledge"],
+  "work_place": "IT Company",
+  "service_desc": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum",
+  "about_me": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.",
+  "city": "Seoul",
+  "title": ["Flower", "Seedlings", "Gardner", "Old", "New"],
+  "flower_desc": ["What is a Flower?", "What is a Seedlings?", "Who is Gardner?"],
+  "flower_name": ["Tulip", "Daffodil", "Poppy", "Sunflower", "Bluebell", "Rose", "Snowdrop", "Cherry", "blassom"],
+  "flower_price": ["15$", "25$", "15$", "20$", "35$", "30$", "22$", "19$", "9$"],
+  "famous_words": ["World is Beautiful with Flowers"],
+  "famous_name": ["Stave Jobs "]
+}
