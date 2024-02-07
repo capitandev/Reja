@@ -14,19 +14,22 @@ app.use(express.urlencoded({ extended: true }));
 app.set("views", "views"); 
 app.set("view engine", "ejs"); 
 
-//4 Rounting code
+// 4: Routing code
 app.post("/create-item", (req, res) => {
-  console.log(req);
-  res.json({ test: "success" });
+    console.log(req);
+    res.json({ test: "success" });
 });
+
 app.get("/gift", function(req, res){
     res.end("<h1>salom bu gift page</h1>");
-})
+});
+
 app.get("/", function(req, res){ 
     res.render("harid");
+});
 
 const server = http.createServer(app);
-let PORT = 3006;
+const PORT = 3006;
 server.listen(PORT, function () {
-  console.log(`The server is running successfully on port: ${PORT}`);
+    console.log(`The server is running successfully on port: ${PORT}`);
 });
