@@ -1,15 +1,25 @@
 {
   "name": "reja",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "this my first project",
+=======
+  "description": "this my project",
+>>>>>>> 6b2cee693f0641b19fdf2db99298fe7fa4db94af
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
     "train": "nodemon train.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+<<<<<<< HEAD
   },
   "author": "Alex",
+=======
+
+  },
+  "author": "alex",
+>>>>>>> 6b2cee693f0641b19fdf2db99298fe7fa4db94af
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.9",
