@@ -22,6 +22,8 @@ app.post("/create-item", (req, res) => {
 app.get("/gift", function(req, res){
     res.end("<h1>salom bu gift page</h1>");
 })
+app.get("/", function(req, res){ 
+    res.render("harid");
 
 const server = http.createServer(app);
 let PORT = 3006;
