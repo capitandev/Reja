@@ -1,5 +1,4 @@
 console.log("Web Serverni boshlash");
-const express = require("express");
 const app = express();
 const http = require("http");
 const fs = require("fs");
@@ -14,7 +13,7 @@ fs.readFile("database/user.json", "utf-8", (err, data) => {
 });
 
 // 1: Kirish code
-app.use(express.static("public")); // brouserlarga public folder ochiq degani.
+app.use(express.static("public")); 
 app.use(express.json()); // kirib kelayotgan data ni objectga ozgartirib beradi.
 app.use(express.urlencoded({ extended: true })); // html formdan kelgan ma'lumotlarni qabul qiladi.
 
