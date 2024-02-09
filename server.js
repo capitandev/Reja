@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true })); // html formdan kelgan ma'lumot
 // 2: Session code
 
 // 3: Views code
-app.set("views", "views"); .
+app.set("views", "views"); 
 app.set("view engine", "ejs"); 
 
 // 4: Routing code
