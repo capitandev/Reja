@@ -83,64 +83,69 @@
 
           <div class="left_3">
             <div class="common-header">Languages</div>
-            <div class="common-rate-text">
-              <%=user.languages[0]%>
-              <p>100%</p>
-            </div>
-            <div><img src="icon/rate100.svg" /></div>
-            <div class="common-rate-text">
-              <%=user.languages[1]%>
-              <p>70%</p>
-            </div>
-            <div><img src="icon/rate80.svg" /></div>
-            <div class="common-rate-text">
-              <%=user.languages[2]%>
-              <p>60%</p>
-            </div>
-            <div><img src="icon/rate60.svg" /></div>
+            <% if (user.languages && user.languages.length > 0) { %>
+              <% for (let i = 0; i < user.languages.length; i++) { %>
+                <div class="common-rate-text">
+                  <%= user.languages[i] %>
+                  <p>
+                    <% if (i === 0) { %>
+                      100%
+                    <% } else if (i === 1) { %>
+                      70%
+                    <% } else if (i === 2) { %>
+                      60%
+                    <% } %>
+                  </p>
+                </div>
+                <div>
+                  <% if (i === 0) { %>
+                    <img src="/icon/rate100.svg" />
+                  <% } else if (i === 1) { %>
+                    <img src="/icon/rate80.svg" />
+                  <% } else if (i === 2) { %>
+                    <img src="/icon/rate60.svg" />
+                  <% } %>
+                </div>
+              <% } %>
+            <% } else { %>
+              <p>No languages specified.</p>
+            <% } %>
           </div>
           <div class="marginer"></div>
-
+          
           <!-- Skills -->
 
           <div class="left_4">
             <div class="common-header">Skills</div>
-            <div class="common-rate-text">
-              <%=user.skills[0]%>
-              <p>95%</p>
-            </div>
-            <div><img src="icon/rate90.svg" /></div>
-            <div class="common-rate-text">
-              <%=user.skills[1]%>
-              <p>95%</p>
-            </div>
-            <div><img src="icon/rate85.svg" /></div>
-            <div class="common-rate-text">
-              <%=user.skills[2]%>
-              <p>80%</p>
-            </div>
-            <div><img src="icon/rate80.svg" /></div>
-            <div class="common-rate-text">
-              <%=user.skills[3]%>
-              <p>60%</p>
-            </div>
-            <div><img src="icon/rate75.svg" /></div>
-            <div class="common-rate-text">
-              <%=user.skills[4]%>
-              <p>60%</p>
-            </div>
-            <div><img src="icon/rate60.svg" /></div>
+            <% if (user.skills && user.skills.length > 0) { %>
+              <% for (let i = 0; i < user.skills.length; i++) { %>
+                <div class="common-rate-text">
+                  <%= user.skills[i] %>
+                  <p>95%</p>
+                </div>
+                <div><img src="icon/rate90.svg" /></div>
+              <% } %>
+            <% } else { %>
+              <p>No skills available</p>
+            <% } %>
           </div>
           <div class="marginer"></div>
+          
           <!-- /*********Extra Skills*********/ -->
 
           <div class="left_5">
             <div class="common-header">Extra Skills</div>
-            <div class="common-text"><img src="icon/extraSkillIcon.svg" /> &nbsp &nbsp <%=user.extra_skills[0]%></div>
-            <div class="common-text"><img src="icon/extraSkillIcon.svg" /> &nbsp &nbsp <%=user.extra_skills[1]%></div>
-            <div class="common-text"><img src="icon/extraSkillIcon.svg" /> &nbsp &nbsp <%=user.extra_skills[2]%></div>
-            <div class="common-text"><img src="icon/extraSkillIcon.svg" /> &nbsp &nbsp <%=user.extra_skills[3]%></div>
+            <% if (user.extra_skills && user.extra_skills.length > 0) { %>
+              <% for (let i = 0; i < user.extra_skills.length; i++) { %>
+                <div class="common-text">
+                  <img src="icon/extraSkillIcon.svg" />&nbsp;&nbsp;<%= user.extra_skills[i] %>
+                </div>
+              <% } %>
+            <% } else { %>
+              <p>No extra skills available</p>
+            <% } %>
           </div>
+          
           <!-- <div class="marginer"></div> -->
         </div>
 
