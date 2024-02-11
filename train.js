@@ -1,4 +1,5 @@
                                                  // -------- A - TASK -----------------
+                      // <-------------- So'zning ichidagi hariflarni sonini hisoblovchi funksiya ---------------->
 
 // function countLetter(letter, word) {
 //     let count = 0;                                  // Harfning necha marta uchrashganligini hisoblash uchun o'zgaruvchini hosil qildik va qiymatini 0 ga tengladik
@@ -13,7 +14,8 @@
 // console.log(countLetter("e", "engineer")); // => 3
 
                                                 //-------------- B-TASK  -------------------
-// Berilgan stringda qatnashgan raqamlarni hisoblovchi funksiya
+            //<----------------- Berilgan stringda qatnashgan raqamlar sonini hisoblovchi funksiya ---------------------------->
+
 const countDigits = (string) => {
   let count = 0; 
   for (let i = 0; i < string.length; i++) { 
