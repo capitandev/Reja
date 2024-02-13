@@ -27,8 +27,8 @@ const countDigits = (string) => {
 };
 
 
-console.log(countDigits("ad2a54y79wet0sfgb9")); // 7
-
+console.log(countDigits("ad2a54y79wet0sfgb9")); // =>7
+ 
 
 // //------------------------- 21- NodeJsevent lop & Callback function ---------------------------------------
 
