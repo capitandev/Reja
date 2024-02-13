@@ -8,8 +8,8 @@ mongodb.connect(
   connectionString,
 
   {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useNewUrlParser: true,//?-------------------------
+    useUnifiedTopology: true,//?-----------------
   },
   (err, client) => {
     if (err) console.log("ERROR on connection MongoDB");
@@ -26,4 +26,5 @@ mongodb.connect(
     }
   }
 );
+
 

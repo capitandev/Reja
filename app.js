@@ -1,10 +1,8 @@
-// Importing required modules
 console.log("Web Serverni boshlash");
 const express = require("express");
 const app = express();
 const fs = require("fs");
 
-// Reading user data from a JSON file
 let user;
 fs.readFile("database/user.json", "utf-8", (err, data) => {
   if (err) {
@@ -13,41 +11,50 @@ fs.readFile("database/user.json", "utf-8", (err, data) => {
     user = JSON.parse(data);
   }
 });
+//use => middleware
+//set => setting
 
-// MongoDB connection
+// MongoDB chaqirish
+
 const db = require("./server").db();
+const mongodb = require("mongodb");
 
-// Middleware setup
-app.use(express.static("public")); // Serving static files from the 'public' directory
-app.use(express.json()); // Parsing incoming request bodies as JSON
-app.use(express.urlencoded({ extended: true })); // Parsing form data in request bodies
+// 1: Kirish code
+app.use(express.static("public")); // brouserlarga public folder ochiq degani.
+app.use(express.json()); // kirib kelayotgan data ni objectga ozgartirib beradi.
+app.use(express.urlencoded({ extended: true })); // html formdan kelgan ma'lumotlarni qabul qiladi.
 
-// View engine setup
-app.set("views", "views"); // Setting the views directory
-app.set("view engine", "ejs"); // Setting EJS as the view engine
+// 2: Session code
 
-// Route for creating a new item
+// 3: Views code
+app.set("views", "views"); // folderni korsatyapmiz.
+app.set("view engine", "ejs"); // view engine ejs ekanligini korsatyapmiz.
+
+// 4: Routing code
+
+// create-item
 app.post("/create-item", (req, res) => {
   console.log("user entered /create-item");
-
   const new_reja = req.body.reja;
   db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
-    if (err) {
-      console.log(err);
-      res.end("Something went wrong"); // Traditional response for error
-    } else {
-      console.log(data.ops); // Logging the inserted data
-      res.json(data.ops[0]); // Sending the inserted data as JSON response
-    }
+    console.log(data.ops);
+    res.json(data.ops[0]);
   });
 });
 
-// Route for rendering the author view
+// delete-item
+app.post("/delete-item", (req, res) => {
+  const id = req.body.id;
+  db.collection("plans").deleteOne({ _id: new mongodb.ObjectId(id) }, (err, data) => {
+    res.json({ state: "success" });
+  });
+});
 app.get("/author", function (req, res) {
-  res.render("author", { user: user }); // Rendering the 'author' view with user data
+  console.log("user entered /author");
+
+  res.render("author", { user: user });
 });
 
-// Route for rendering the main page
 app.get("/", function (req, res) {
   console.log("user entered /");
   db.collection("plans")
@@ -56,9 +63,9 @@ app.get("/", function (req, res) {
       if (err) {
         console.log("Something went wrong");
       } else {
-        res.render("reja", { items: data }); // Rendering the 'reja' view with item data
+        res.render("reja", { items: data });
       }
     });
 });
 
-module.exports = app; // Exporting the Express application
+module.exports = app;
