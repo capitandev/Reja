@@ -16,18 +16,68 @@
                                                 //-------------- B-TASK  -------------------
             //<----------------- Berilgan stringda qatnashgan raqamlar sonini hisoblovchi funksiya ---------------------------->
 
-const countDigits = (string) => {
-  let count = 0; 
-  for (let i = 0; i < string.length; i++) { 
-      if (!isNaN(parseInt(string[i]))) { 
-          count++; 
+// const countDigits = (string) => {
+//   let count = 0; 
+//   for (let i = 0; i < string.length; i++) { 
+//       if (!isNaN(parseInt(string[i]))) { 
+//           count++; 
+//       }
+//   }
+//   return count; 
+// };
+
+
+// console.log(countDigits("ad2a54y79wet0sfgb9")); // =>7
+
+//                          -------------- C-TASK  -------------------
+
+/*
+Shunday class tuzing tuzing nomi Shop, va uni constructoriga 3 hil mahsulot pass bolsin, 
+hamda classning 3ta methodi bolsin, biri qoldiq, biri sotish va biri qabul. 
+Har bir method ishga tushgan vaqt ham log qilinsin.
+MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() return hozir 20:40da 4ta non, 
+5ta lagmon va 2ta cola mavjud! shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return hozir 20:50da 1ta non,
+5ta lagmon va 6ta cola mavjud! */
+
+class Shop { // Shop klassi 3 ta mahsulotni (brea, kebab, pepsini ) o'z ichiga saqlaydi.
+  constructor(bread, kebab, pepsi) {
+      this.bread = bread;
+      this.kebab = kebab;
+      this.pepsi = pepsi;
+  }
+
+  stock() { // stock metod hozirgi vaqt bilan  do'konning o'zgaruvchilari bilan print qiladi.
+      const now = new Date();
+      console.log(`Currently, at ${now.getHours()}:${now.getMinutes()}, we have ${this.bread} loaves of bread, ${this.kebab} kebabs, and ${this.pepsi} bottles of Pepsi in stock!`);
+  }
+
+  sell(product, quantity) { // sell metod sotish va qabul qiluvchi mahsulotni miqdori  hisoblaydi.
+      if (product === 'bread') {
+          this.bread -= quantity;
+      } else if (product === 'kebab') {
+          this.kebab -= quantity;
+      } else if (product === 'pepsi') {
+          this.pepsi -= quantity;
       }
   }
-  return count; 
-};
 
+  restock(product, quantity) { // restock metod dataga yangi mahsulot qo'shadi.
+      if (product === 'bread') {
+          this.bread += quantity;
+      } else if (product === 'kebab') {
+          this.kebab += quantity;
+      } else if (product === 'pepsi') {
+          this.pepsi += quantity;
+      }
+  }
+}
 
-console.log(countDigits("ad2a54y79wet0sfgb9")); // =>7
+const shop = new Shop(4, 5, 2);
+shop.stock(); // Currently, at 20:40, we have 4 loaves of bread, 5 kebabs, and 2 bottles of Pepsi in stock!
+shop.sell('bread', 3);// hozir 20:40da 4ta non, 5ta kabob va 2ta pepsi mavjud!
+shop.restock('pepsi', 4);
+shop.stock(); // hozir 20:50da 1ta non, 5ta kabob va 6ta pepsi mavjud!
+
  
 
 // //------------------------- 21- NodeJsevent lop & Callback function ---------------------------------------
