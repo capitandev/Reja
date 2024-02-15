@@ -1,3 +1,41 @@
+                                   // -------------------- D - TASK ---------------------------------------- 
+
+                                                 
+ function checkContent(str1, str2) {
+    // Stringlarning uzunligi bir xil emasligini tekshiradi  bir hil bo'mas fals chiqadi va o'qishdan toxtaydi 
+    if (str1.length !== str2.length) {
+        return false;
+    } else {
+        // Har bir stringni hisoblab returni saqlaydi
+        const charCount1 = {};
+        const charCount2 = {};
+
+        // Stringlardagi harf sonlarini hisoblaaydi
+        for (let char of str1) {
+            charCount1[char] = (charCount1[char] || 0) + 1;
+        }
+        for (let char of str2) {
+            charCount2[char] = (charCount2[char] || 0) + 1;
+        }
+
+        // Harifni solishtiradi 
+        for (let char in charCount1) {
+            if (charCount1[char] !== charCount2[char]) {
+                return false;
+            }
+        }
+        // Agar harfnning soni bir xil bo'lsa, true qaytariladi
+        return true;
+    }
+}
+console.log(checkContent("mitgroup", "gmtiprou")); // => true
+console.log(checkContent("hello", "world")); // => false
+                                                            
+         // akkaountda birinchi oyda pull to'lovi bo'lmas akkaount block qilinadi.
+         // ----------- Herko link -------------------------- 
+         // https://serene-taiga-49648-b283d0f509da.herokuapp.com/                                         
+                                                 
+                                                 
                                                  // -------- A - TASK -----------------
                       // <-------------- So'zning ichidagi hariflarni sonini hisoblovchi funksiya ---------------->
 
@@ -39,44 +77,44 @@ MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() return hozir 20:40da 4ta 
 5ta lagmon va 2ta cola mavjud! shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return hozir 20:50da 1ta non,
 5ta lagmon va 6ta cola mavjud! */
 
-class Shop { // Shop klassi 3 ta mahsulotni (brea, kebab, pepsini ) o'z ichiga saqlaydi.
-  constructor(bread, kebab, pepsi) {
-      this.bread = bread;
-      this.kebab = kebab;
-      this.pepsi = pepsi;
-  }
+// class Shop { // Shop klassi 3 ta mahsulotni (brea, kebab, pepsini ) o'z ichiga saqlaydi.
+//   constructor(bread, kebab, pepsi) {
+//       this.bread = bread;
+//       this.kebab = kebab;
+//       this.pepsi = pepsi;
+//   }
 
-  stock() { // stock metod hozirgi vaqt bilan  do'konning o'zgaruvchilari bilan print qiladi.
-      const now = new Date();
-      console.log(`Currently, at ${now.getHours()}:${now.getMinutes()}, we have ${this.bread} loaves of bread, ${this.kebab} kebabs, and ${this.pepsi} bottles of Pepsi in stock!`);
-  }
+//   stock() { // stock metod hozirgi vaqt bilan  do'konning o'zgaruvchilari bilan print qiladi.
+//       const now = new Date();
+//       console.log(`Currently, at ${now.getHours()}:${now.getMinutes()}, we have ${this.bread} loaves of bread, ${this.kebab} kebabs, and ${this.pepsi} bottles of Pepsi in stock!`);
+//   }
 
-  sell(product, quantity) { // sell metod sotish va qabul qiluvchi mahsulotni miqdori  hisoblaydi.
-      if (product === 'bread') {
-          this.bread -= quantity;
-      } else if (product === 'kebab') {
-          this.kebab -= quantity;
-      } else if (product === 'pepsi') {
-          this.pepsi -= quantity;
-      }
-  }
+//   sell(product, quantity) { // sell metod sotish va qabul qiluvchi mahsulotni miqdori  hisoblaydi.
+//       if (product === 'bread') {
+//           this.bread -= quantity;
+//       } else if (product === 'kebab') {
+//           this.kebab -= quantity;
+//       } else if (product === 'pepsi') {
+//           this.pepsi -= quantity;
+//       }
+//   }
 
-  restock(product, quantity) { // restock metod dataga yangi mahsulot qo'shadi.
-      if (product === 'bread') {
-          this.bread += quantity;
-      } else if (product === 'kebab') {
-          this.kebab += quantity;
-      } else if (product === 'pepsi') {
-          this.pepsi += quantity;
-      }
-  }
-}
+//   restock(product, quantity) { // restock metod dataga yangi mahsulot qo'shadi.
+//       if (product === 'bread') {
+//           this.bread += quantity;
+//       } else if (product === 'kebab') {
+//           this.kebab += quantity;
+//       } else if (product === 'pepsi') {
+//           this.pepsi += quantity;
+//       }
+//   }
+// }
 
-const shop = new Shop(4, 5, 2);
-shop.stock(); // Currently, at 20:40, we have 4 loaves of bread, 5 kebabs, and 2 bottles of Pepsi in stock!
-shop.sell('bread', 3);// hozir 20:40da 4ta non, 5ta kabob va 2ta pepsi mavjud!
-shop.restock('pepsi', 4);
-shop.stock(); // hozir 20:50da 1ta non, 5ta kabob va 6ta pepsi mavjud!
+// const shop = new Shop(4, 5, 2);
+// shop.stock(); // Currently, at 20:40, we have 4 loaves of bread, 5 kebabs, and 2 bottles of Pepsi in stock!
+// shop.sell('bread', 3);// hozir 20:40da 4ta non, 5ta kabob va 2ta pepsi mavjud!
+// shop.restock('pepsi', 4);
+// shop.stock(); // hozir 20:50da 1ta non, 5ta kabob va 6ta pepsi mavjud!
 
  
 
