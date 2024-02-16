@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const fs = require("fs");
 
-const PORT = process.env.PORT || 3000;
+
 
 let user;
 fs.readFile("database/user.json", "utf-8", (err, data) => {
@@ -56,16 +56,27 @@ app.post("/create-item", (req, res) => {
         res.json({ state: "success" });
       });
     });
-        //edit-item 
-        app.post("/edit-item", (req, res) => {
-          const data = req.body.id;
-          db.collection("plans").findOneAndUpdate({ _id: new mongodb.ObjectId(data.id)}, {$set: {reja: data.new_input}},
-          function(err,data) {
-            res.json({ state: "success db o'zgartiildi " });
-          }
-          );
-         
-          });
+       //edit-item 
+app.post("/edit-item", (req, res) => {
+  const { id, new_input } = req.body;
+    // Db ni tekshirishb keyingi qatorga o'tadi
+  if (!id || !new_input) {
+    return res.status(400).json({ error: "ID and new_input are required" });
+  }
+
+  db.collection("plans").findOneAndUpdate(
+    { _id: new mongodb.ObjectId(id) }, 
+    { $set: { reja: new_input } },
+    (err, data) => {
+      if (err) {
+        console.error("Error updating item:", err);
+        return res.status(500).json({ error: "Error updating item" });
+      }
+      res.json({ state: "success db o'zgartiildi " });
+    }
+  );
+});
+;
           
           app.post("/delete-all", (req, res) => {
             // So'rovdan "delete_all"  qabul qilinadi

@@ -48,11 +48,14 @@ document.addEventListener("click", function (e) {
       }
   }
   // Edit operation
+
   if (e.target.classList.contains("edit-me")) {
-      let userInput = prompt("Enter the new value", e.target.parentElement.parentElement.querySelector(".item-text").innerHTML);
+      let userInput = prompt("o'zgartirish", e.target.parentElement.parentElement.querySelector(".item-text").innerHTML);
       if (userInput) {
           axios
-              .post("/edit-item", { id: e.target.getAttribute("data-id"), new_input: userInput })
+              .post("/edit-item", { 
+                id: e.target.getAttribute("data-id"), 
+              new_input: userInput, })
               .then((response) => {
                   console.log(response.data); // Log response from server
                   e.target.parentElement.parentElement.querySelector(".item-text").innerHTML = userInput; // Update the item text
