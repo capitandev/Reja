@@ -57,6 +57,18 @@ app.post("/create-item", (req, res) => {
       });
     });
        //edit-item 
+       app.post("/edit-item", (req, res) => {
+        const data = req.body;
+        console.log(data);
+        db.collection("plans").findOneAndUpdate(
+          { _id: new mongodb.ObjectId(data.id) },
+          { $set: { reja: data.new_input } },
+          (err, data) => {
+            res.json({ state: "success" });
+          }
+        );
+      });
+       /*
 app.post("/edit-item", (req, res) => {
   const { id, new_input } = req.body;
     // Db ni tekshirishb keyingi qatorga o'tadi
@@ -76,7 +88,7 @@ app.post("/edit-item", (req, res) => {
     }
   );
 });
-;
+*/
           
           app.post("/delete-all", (req, res) => {
             // So'rovdan "delete_all"  qabul qilinadi
