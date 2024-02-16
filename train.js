@@ -1,36 +1,30 @@
-                                   // -------------------- D - TASK ---------------------------------------- 
-
-                                                 
- function checkContent(str1, str2) {
-    // Stringlarning uzunligi bir xil emasligini tekshiradi  bir hil bo'mas fals chiqadi va o'qishdan toxtaydi 
-    if (str1.length !== str2.length) {
-        return false;
-    } else {
-        // Har bir stringni hisoblab returni saqlaydi
-        const charCount1 = {};
-        const charCount2 = {};
-
-        // Stringlardagi harf sonlarini hisoblaaydi
-        for (let char of str1) {
-            charCount1[char] = (charCount1[char] || 0) + 1;
-        }
-        for (let char of str2) {
-            charCount2[char] = (charCount2[char] || 0) + 1;
-        }
-
-        // Harifni solishtiradi 
-        for (let char in charCount1) {
-            if (charCount1[char] !== charCount2[char]) {
-                return false;
-            }
-        }
-        // Agar harfnning soni bir xil bo'lsa, true qaytariladi
-        return true;
+                                     
+                                                 // -------- E - TASK -----------------
+//Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
+// MASALAN: getReverse("hello") return qilsin "olleh"
+//------------------------------------------------------ solution -------------------------------------------------------------------
+function getReverse(str) {
+    let reversedString = ""; //reversedString nomli o'zgaruvchi yaratiga va unga bo'sh qator qiymat berdik. keyinchalik u return qitmatini oladi 
+    
+    for (let i = str.length - 1; i >= 0; i--) {// - 1 so'zdagi eng oxirgi belgi indeksini indeks 0 dan boshlangani uchun -1 kerak
+      reversedString += str[i];
     }
-}
-console.log(checkContent("mitgroup", "gmtiprou")); // => true
-console.log(checkContent("hello", "world")); // => false
-                                                            
+    
+    if (!str || str.length === 0) {
+      return "erorr"; // Agar input bo'sh bo'lsa erorr ni chiqaradi  
+    }
+  
+    
+  
+    return reversedString; //  reversedString ga natijani return qiladi 
+  }
+  
+  
+  const reversed = getReverse("AFIF");
+  console.log(reversed); // => FiFA
+  
+         
+        
          // akkaountda birinchi oyda pull to'lovi bo'lmas akkaount block qilinadi.
          // ----------- Herko link -------------------------- 
          // https://serene-taiga-49648-b283d0f509da.herokuapp.com/                                         
@@ -200,3 +194,46 @@ MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() return hozir 20:40da 4ta 
 // }
 // run();
 // // ----------------------------- 23 MongDB ------------------------------
+
+                                // ----------------------------------- Chalange 1 ------------------------------
+ /*
+ // Hayvonlar nomi 
+const animal_list = [
+    "fox", "bird", "lion", "wolf", "deer", "bear",
+    "duck", "goat", "dog", "cat", "snacke", "cow"
+  ];
+  
+   // Berilgan so'zdagi hayvonlarini topish 
+  function findAnimals(inputString) {
+    // ro'yxat saqlash  uchun bo'sh joy 
+    const foundAnimals = [];
+  
+    // animal list  tekshirish uchun loop
+    for (let i = 0; i < animal_list.length; i++) {
+      const animal = animal_list[i];
+      let foundAllChars = true;
+  
+      // hayvon ismini har bir harifini tekshiruvchi loop 
+      for (let j = 0; j < animal.length; j++) {
+        const char = animal[j];
+        
+        // findAnimalsdan olingan textni animala listda bo yo'qligini tekshirish 
+        if (inputString.indexOf(char) === -1) {
+          foundAllChars = false;
+          break;
+        }
+      }
+  
+      // hamma harif bo'lsa ro'yxatga qo'shish 
+      if (foundAllChars) {
+        foundAnimals.push(animal);
+      }
+    }
+  
+    return foundAnimals;
+  }
+  
+  // Berilgan textdagi hayvonlarni topish
+  const result = findAnimals("dgacoat");
+  console.log(result); // ['goat', 'dog', 'cat'] 
+  */
