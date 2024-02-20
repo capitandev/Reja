@@ -1,27 +1,51 @@
-                                     
+        //                 --------------------------         F-TASK:   ---------------------------------
+// Shunday findDoublers function tuzing, unga faqat bitta string argument pass bolib, agar stringda bir hil harf qatnashgan bolsa true, qatnashmasa false qaytarishi kerak.
+        //MASALAN: getReverse("hello") return true return qiladi
+                             
+function findDoublers(str) {
+  let charCount = {}; 
+  for (let char of str) {
+      if (charCount[char]) { 
+          charCount[char]++;
+      } else { 
+          charCount[char] = 1;
+      }
+  }
+  for (let char in charCount) {
+      if (charCount[char] > 1) {
+          return true;
+      }
+  }
+  return false;
+}
+console.log(findDoublers("hello")); 
+console.log(findDoublers("Hi"));  
+
+                                                 
+                                                 
                                                  // -------- E - TASK -----------------
 //Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
 // MASALAN: getReverse("hello") return qilsin "olleh"
 //------------------------------------------------------ solution -------------------------------------------------------------------
-function getReverse(str) {
-    let reversedString = ""; //reversedString nomli o'zgaruvchi yaratiga va unga bo'sh qator qiymat berdik. keyinchalik u return qitmatini oladi 
+// function getReverse(str) {
+//     let reversedString = ""; //reversedString nomli o'zgaruvchi yaratiga va unga bo'sh qator qiymat berdik. keyinchalik u return qitmatini oladi 
     
-    for (let i = str.length - 1; i >= 0; i--) {// - 1 so'zdagi eng oxirgi belgi indeksini indeks 0 dan boshlangani uchun -1 kerak
-      reversedString += str[i];
-    }
+//     for (let i = str.length - 1; i >= 0; i--) {// - 1 so'zdagi eng oxirgi belgi indeksini indeks 0 dan boshlangani uchun -1 kerak
+//       reversedString += str[i];
+//     }
     
-    if (!str || str.length === 0) {
-      return "erorr"; // Agar input bo'sh bo'lsa erorr ni chiqaradi  
-    }
+//     if (!str || str.length === 0) {
+//       return "erorr"; // Agar input bo'sh bo'lsa erorr ni chiqaradi  
+//     }
   
     
   
-    return reversedString; //  reversedString ga natijani return qiladi 
-  }
+//     return reversedString; //  reversedString ga natijani return qiladi 
+//   }
   
   
-  const reversed = getReverse("AFIF");
-  console.log(reversed); // => FiFA
+//   const reversed = getReverse("AFIF");
+//   console.log(reversed); // => FiFA
   
          
         
